@@ -1,8 +1,9 @@
 Omnium
 ======
 
-Omnium is an abstraction layer across DNS services. It enables developers to build apps
-that are agnostic to cloud DNS services.
+Omnium is a JavaScript abstraction layer across cloud DNS services.
+
+It supports apps that are agnostic to cloud DNS services.
 
 # Using cloud DNS services
     const { omniumClient } = require('omnium')
