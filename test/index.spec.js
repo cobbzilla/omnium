@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const { expect, should } = require('chai')
 
-const { omniumClient, DEFAULT_TTL } = require('../index.js')
+const { omnium, DEFAULT_TTL } = require('../index.js')
 
 const DRIVER_CONFIG = {
     'godaddy': {
@@ -29,7 +29,7 @@ for (const driverName of Object.keys(DRIVER_CONFIG)) {
         describe(`${driverName} - create api client`, () => {
             it("should validate the config and return an API object", async () => {
                 const config = DRIVER_CONFIG[driverName]
-                const api = await omniumClient(driverName, config.key, config.secret, config.opts)
+                const api = await omnium(driverName, config.key, config.secret, config.opts)
                 should().exist(api, 'expected API object to exist')
             })
         })
@@ -37,7 +37,7 @@ for (const driverName of Object.keys(DRIVER_CONFIG)) {
         describe(`${driverName} - get records for domain`, () => {
             it("should return at least one DNS record", async () => {
                 const config = DRIVER_CONFIG[driverName]
-                const api = await omniumClient(driverName, config.key, config.secret, config.opts)
+                const api = await omnium(driverName, config.key, config.secret, config.opts)
                 const records = await api.list(config.domain)
                 expect(records).to.have.lengthOf.greaterThanOrEqual(1, `expected at least one DNS record for test domain ${config.domain}`)
             })
@@ -51,7 +51,7 @@ for (const driverName of Object.keys(DRIVER_CONFIG)) {
             beforeEach((done) => {
                 const type = 'TXT'
                 const name = `test_record_${recordSuffix}`
-                omniumClient(driverName, config.key, config.secret, config.opts)
+                omnium(driverName, config.key, config.secret, config.opts)
                     .then(api => {
                         fixture = {api, type, name}
                         done()

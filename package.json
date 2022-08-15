@@ -1,7 +1,7 @@
 {
   "name": "omnium",
-  "version": "1.0.0",
-  "description": "cloud DNS abstraction",
+  "version": "1.0.1",
+  "description": "A cloud DNS abstraction layer",
   "main": "index.js",
   "author": "Jonathan Cobb",
   "license": "Apache-2.0",
@@ -18,7 +18,6 @@
   },
   "dependencies": {
     "@aws-sdk/client-route-53": "^3.145.0",
-    "node-fetch": "^3.2.10",
     "node-fetch-commonjs": "^3.1.1"
   }
 }

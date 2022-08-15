@@ -9,7 +9,7 @@ function OmniumError (message) {
     }
 }
 
-async function omniumClient (driverPath, key, secret, opts) {
+async function omnium (driverPath, key, secret, opts) {
     const driver = require(driverPath.includes('/') ? driverPath : `./drivers/${driverPath}/index.js`)
     const client = driver.apiClient(key, secret, opts)
     if (!(await client.testConfig())) {
@@ -35,4 +35,4 @@ function removeFqdn (domain, name) {
 }
 const DEFAULT_TTL = 60 * 60 // 1 hour default TTL
 
-module.exports = { omniumClient, OmniumError, ensureFqdn, removeFqdn, DEFAULT_TTL }
+module.exports = { omnium, OmniumError, ensureFqdn, removeFqdn, DEFAULT_TTL }

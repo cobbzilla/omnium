@@ -6,9 +6,9 @@ Omnium is a JavaScript abstraction layer across cloud DNS services.
 It supports apps that are agnostic to cloud DNS services.
 
 # Using cloud DNS services
-    const { omniumClient } = require('omnium')
-    const godaddy = await omniumClient('godaddy', godaddy_key, godaddy_secret)
-    const route53 = await omniumClient('route53', aws_key, aws_secret, {region: 'us-east-1'})
+    const { omnium } = require('omnium')
+    const godaddy = await omnium('godaddy', godaddy_key, godaddy_secret)
+    const route53 = await omnium('route53', aws_key, aws_secret, {region: 'us-east-1'})
 
     // list DNS records for a domain
     route53.list('www.example.com')  // --> returns an array of DNS record objects
