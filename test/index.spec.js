@@ -18,6 +18,10 @@ const DRIVER_CONFIG = {
     }
 }
 
+// To test a single driver:
+//  - Uncomment the line below to set the driverName to whichever you want to test
+//  - Comment out the next `for` line and its closing curly brace just before EOF
+
 // const driverName = 'godaddy'
 
 for (const driverName of Object.keys(DRIVER_CONFIG)) {
