@@ -1,4 +1,4 @@
-const {OmniumError, DEFAULT_TTL, ensureFqdn} = require('../../index')
+const {OmniumError, DEFAULT_TTL} = require('../../index')
 const fetch = require('node-fetch-commonjs')
 
 const GODADDY_API_URL = 'https://api.godaddy.com'

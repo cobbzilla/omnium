@@ -19,7 +19,7 @@ It supports apps that are agnostic to cloud DNS services.
     // remove a DNS record
     route53.remove('www.example.com', 'A', 'some-hostname')
 
-    // The above commands work identically if 'route53' is replace with godaddy
+    // The above commands work identically if route53 is replace with godaddy
 
 # Driver Interface
 A driver is any JS file that exports an 'apiClient' function like this:

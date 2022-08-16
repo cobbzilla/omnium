@@ -5,7 +5,7 @@ const {
     ListHostedZonesCommand,
     ListResourceRecordSetsCommand,
     ChangeResourceRecordSetsCommand
-} = require("@aws-sdk/client-route-53");
+} = require('@aws-sdk/client-route-53')
 
 const DEFAULT_REGION = 'us-east-1'
 
@@ -24,7 +24,7 @@ class ApiClient {
         this.client = new Route53Client({region, credentials})
     }
     async loadHostedZones () {
-        const response = await this.client.send(new ListHostedZonesCommand({}));
+        const response = await this.client.send(new ListHostedZonesCommand({}))
         console.log(`loadHostedZones: received: ${JSON.stringify(response, null, 2)}`)
         if (response.HostedZones) {
             this.hostedZoneIds = {}

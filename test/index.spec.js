@@ -1,4 +1,6 @@
-require('dotenv').config();
+// To run the tests, you need a .env file one level above this directory
+// that contains env vars for all the process.env stuff in DRIVER_CONFIG below
+require('dotenv').config()
 
 const { expect, should } = require('chai')
 
@@ -20,10 +22,14 @@ const DRIVER_CONFIG = {
 
 // To test a single driver:
 //  - Uncomment the line below to set the driverName to whichever you want to test
-//  - Comment out the next `for` line and its closing curly brace just before EOF
+//  - Comment out the next `for` line, and its closing curly brace (just before EOF)
 
-// const driverName = 'godaddy'
+// const driverName = 'route53'
 
+// When you're NOT testing a single driver, it's important that *all* tests remain
+// within the singular 'for' loop below. This ensures that all drivers pass exactly
+// the same set of tests, with exactly the same inputs/outputs.
+// This greatly supports developer sanity
 for (const driverName of Object.keys(DRIVER_CONFIG)) {
     describe(`${driverName} test`, () => {
         describe(`${driverName} - create api client`, () => {

@@ -13,7 +13,7 @@ async function omnium (driverPath, key, secret, opts) {
     const driver = require(driverPath.includes('/') ? driverPath : `./drivers/${driverPath}/index.js`)
     const client = driver.apiClient(key, secret, opts)
     if (!(await client.testConfig())) {
-        throw new OmniumError(`omniumClient(${driverPath}) error: test API call failed`)
+        throw new OmniumError(`omnium(${driverPath}) error: test API call failed`)
     }
     return client
 }
